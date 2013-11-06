@@ -3,9 +3,20 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
+  api.imply([
+    'standard-app-packages',
+    'accounts-password',
+    'check',
+    'smartfile',
+    'dumb-i18n',
+    'iron-router'
+  ], ['client', 'server']);
+
   api.use([
     'standard-app-packages',
     'accounts-password',
+    'check',
+    'smartfile',
     'dumb-i18n',
     'iron-router'
   ], ['client', 'server']);
@@ -40,4 +51,6 @@ Package.on_use(function (api) {
     
     'client/router.js'
   ], 'client');
+
+  api.export('Perseid', ['client', 'server']);
 });

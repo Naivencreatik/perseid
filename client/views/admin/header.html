@@ -1,0 +1,12 @@
+<template name="adminHeader">
+    <header>
+        <nav class="nav-header">
+            <ul>
+                {{yield "adminActions"}}
+                <li class="nav-item right">
+                    <a href="#" class="header-logout">{{i18n "logout"}}</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</template>

@@ -1,8 +1,6 @@
 Perseid.subs.config = Meteor.subscribe("config");
 
 Router.map(function(){
-    this.route("admin");
-
     this.route("adminLogin", {
         path: "/admin/login"
     });
@@ -23,9 +21,11 @@ Router.map(function(){
 Router.configure({
     layoutTemplate: "layout",
 
-    yieldTemplates: {
-        "header": { to: "header" }
-    }
+    before: function () {
+        if (Meteor.userId()) {
+            this.render("adminHeader", {to: "header"})
+        }
+    } 
 });
 
 Router.before(function () {
@@ -42,6 +42,7 @@ Router.before(function () {
             this.stop();
         }
         else {
+            Session.set("admin.login.redirect", routeName);
             this.redirect("adminLogin");
         }
     }

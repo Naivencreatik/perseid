@@ -41,13 +41,13 @@ Package.on_use(function (api) {
     'client/styles/main.css',
 
     'client/views/layout.html',
-    'client/views/admin/admin.html',
+    
     'client/views/admin/login.html',
     'client/views/admin/login.js',
     'client/views/admin/setup.html',
     'client/views/admin/setup.js',
-    'client/views/header/header.html',
-    'client/views/header/header.js',
+    'client/views/admin/header.html',
+    'client/views/admin/header.js',
     
     'client/router.js'
   ], 'client');

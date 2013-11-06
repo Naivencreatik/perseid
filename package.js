@@ -9,7 +9,7 @@ Package.on_use(function (api) {
     'accounts-password',
     'check',
     'smartfile',
-    'dumb-i18n',
+    'just-i18n',
     'iron-router',
     'moment'
   ];
@@ -34,7 +34,9 @@ Package.on_use(function (api) {
     
     'client/collections/config.js',
 
-    'client/i18n/fr.js',
+    'client/i18n/i18n.js',
+    'client/i18n/lang/fr.js',
+    'client/i18n/lang/fr-moment.js',
 
     'client/styles/main.css',
 

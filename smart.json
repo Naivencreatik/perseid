@@ -9,8 +9,8 @@
     "iron-router": {},
     "smartfile": {},
     "moment": {},
-    "dumb-i18n": {
-        "git": "https://github.com/sylvaingi/meteor-dumb-i18n.git"
+    "just-i18n": {
+      "git": "https://github.com/sylvaingi/meteor-just-i18n.git"
     }
   }
 }

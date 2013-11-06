@@ -1,10 +1,10 @@
-i18n.addLocale("fr", {
+i18n.map("fr", {
     "home": "Accueil",
     "admin": "Administration",
     "login": "Connexion",
     "logout": "Déconnexion",
-    "user.login": "Login",
-    "user.password": "Mot de passe",
+    "login": "Login",
+    "password": "Mot de passe",
     "setup.title": "Installation du CMS Perseid",
     "setup.user": "Compte administrateur",
     "setup.user.passwordconfirm": "Confirmer",

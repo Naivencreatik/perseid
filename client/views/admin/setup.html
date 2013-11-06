@@ -1,10 +1,10 @@
 <template name="setup">
-    <h1>{{__ "setup.title"}}</h1>
-    <h2>{{__ "setup.user"}}</h2>
+    <h1>{{i18n "setup.title"}}</h1>
+    <h2>{{i18n "setup.user"}}</h2>
     <form action="#">
-        <input type="text" name="login" required placeholder="{{__ 'user.login'}}">
-        <input type="password" name="password" required placeholder="{{__ 'user.password'}}">
-        <input type="password" name="password-confirm" required placeholder="{{__ 'setup.user.passwordconfirm'}}">
-        <button type="submit">{{__ "setup.user.create"}}</button>
+        <input type="text" name="login" required placeholder="{{i18n 'user.login'}}">
+        <input type="password" name="password" required placeholder="{{i18n 'user.password'}}">
+        <input type="password" name="password-confirm" required placeholder="{{i18n 'setup.user.passwordconfirm'}}">
+        <button type="submit">{{i18n "setup.user.create"}}</button>
     </form>
 </template>

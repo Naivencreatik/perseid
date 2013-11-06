@@ -3,27 +3,25 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.imply([
-    'standard-app-packages',
-    'accounts-password',
-    'check',
-    'smartfile',
-    'dumb-i18n',
-    'iron-router'
-  ], ['client', 'server']);
 
-  api.use([
+  var deps = [
     'standard-app-packages',
     'accounts-password',
     'check',
     'smartfile',
     'dumb-i18n',
-    'iron-router'
-  ], ['client', 'server']);
+    'iron-router',
+    'moment'
+  ];
+
+  //XXX: why do we need to do this?
+  api.imply(deps, ['client', 'server']);
+  api.use(deps, ['client', 'server']);
 
   api.add_files([
     'lib/perseid.js',
     'lib/security.js',
+    'lib/match.js',
     'collections/config.js'
   ], ['client', 'server']);
 

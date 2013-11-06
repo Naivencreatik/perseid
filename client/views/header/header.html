@@ -1,0 +1,16 @@
+<template name="header">
+    {{#if currentUser}}
+        <header>
+            <nav class="nav-header">
+                <ul>
+                    <li class="nav-item">
+                        <a href="{{pathFor 'admin'}}">{{__ "admin"}}</a>
+                    </li>
+                    <li class="nav-item right">
+                        <a href="#" class="header-logout">{{__ "logout"}}</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    {{/if}}
+</template>

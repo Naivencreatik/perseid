@@ -1,0 +1,1 @@
+Perseid.colls.config = new Meteor.Collection("config");

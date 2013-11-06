@@ -17,7 +17,7 @@ Template.adminLogin.events({
                     }
                 }
 
-                Router.go(Session.get("admin.login.redirect"));
+                Router.go(Session.get("admin.login.redirect") || "/");
             });
     }
 });

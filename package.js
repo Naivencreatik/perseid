@@ -11,7 +11,8 @@ Package.on_use(function (api) {
     'smartfile',
     'just-i18n',
     'iron-router',
-    'moment'
+    'moment',
+    'underscore'
   ];
 
   //XXX: why do we need to do this?
@@ -20,7 +21,6 @@ Package.on_use(function (api) {
 
   api.add_files([
     'lib/perseid.js',
-    'lib/security.js',
     'lib/match.js',
     'collections/config.js'
   ], ['client', 'server']);

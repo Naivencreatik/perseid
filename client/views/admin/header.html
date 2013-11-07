@@ -1,12 +1,12 @@
 <template name="adminHeader">
-    <header>
-        <nav class="nav-header">
-            <ul>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="collapse navbar-collapse">
+            <div class="nav navbar-nav navbar-left">
                 {{yield "adminActions"}}
-                <li class="nav-item right">
-                    <a href="#" class="header-logout">{{i18n "logout"}}</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+            </div>
+            <button type="button" class="btn btn-danger navbar-btn navbar-right logout">
+                <span class="glyphicon glyphicon-log-out"></span> {{i18n "logout"}}
+            </button>
+        </div>
+    </nav>
 </template>

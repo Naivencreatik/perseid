@@ -1,14 +1,12 @@
 Template.adminLogin.events({
     'submit': function(event, template){
         event.preventDefault();
-
+        debugger;
         Meteor.loginWithPassword(
-            template.find('[name="login"]').value,
-            template.find('[name="password"]').value,
+            template.find('#user-login').value,
+            template.find('#user-password').value,
             function(err) {
                 if (err) {
-                    Session.set('login.error', null);
-
                     if (err.error === 403) {
                         Session.set('login.error', 'login.error.forbidden');
                     }
@@ -16,8 +14,9 @@ Template.adminLogin.events({
                         Session.set('login.error', 'login.error.unknown');
                     }
                 }
-
-                Router.go(Session.get("admin.login.redirect") || "/");
+                else {
+                    Router.go(Session.get("admin.login.redirect") || "/");
+                }
             });
     }
 });

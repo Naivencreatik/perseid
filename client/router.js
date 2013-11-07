@@ -32,7 +32,7 @@ Router.before(function () {
     var routeName = this.route.name;
 
     // no need to check at these URLs
-    if (routeName === "adminLogin" || routeName.indexOf("admin") !== 0)
+    if (routeName === "admin" || routeName === "adminLogin" || routeName.indexOf("admin") !== 0)
         return;
 
     var user = Meteor.user();

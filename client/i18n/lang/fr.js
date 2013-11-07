@@ -1,4 +1,5 @@
 i18n.map("fr", {
+    "login": "Connexion",
     "logout": "Déconnexion",
     "user.login": "Login",
     "user.password": "Mot de passe",

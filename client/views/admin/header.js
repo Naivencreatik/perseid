@@ -1,6 +1,5 @@
 Template.adminHeader.events({
-    'click .header-logout': function(event){
-        event.preventDefault();
+    'click .logout': function(event){
         Meteor.logout();
     }
 });

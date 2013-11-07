@@ -1,9 +1,9 @@
 Template.setup.events({
-    'submit': function(event, template){
+    "submit": function(event, template){
         event.preventDefault();
 
-        var pwd = template.find('[name="password"]').value;
-        var pwdconf = template.find('[name="password-confirm"]').value;
+        var pwd = template.find("#user-password").value;
+        var pwdconf = template.find("#user-password-confirm").value;
 
         if (pwd !== pwdconf) {
             alert(i18n("setup.error.passwordmismatch"));
@@ -11,16 +11,22 @@ Template.setup.events({
         }
 
         Accounts.createUser({
-            username: template.find('[name="login"]').value,
-            password: template.find('[name="password"]').value,
+            username: template.find("#user-login").value,
+            password: pwd,
         }, function(err){
             if (err){
-                console.log(err);
-                return;
+                Session.set('setup.error', err);
             }
-
-            Meteor.call("config.initialSetup");
-            Router.go('/');
+            else {  
+                Meteor.call("config.initialSetup");
+                Router.go("/");
+            }
         });
+    }
+});
+
+Template.setup.helpers({
+    error: function(){
+        return Session.get('setup.error');
     }
 });

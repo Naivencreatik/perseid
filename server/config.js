@@ -10,9 +10,6 @@ Meteor.methods({
             throw new Meteor.Error(400, "CMS is alreay configured");
         }
 
-        //XXX: unsafe!!!
-        Accounts.createUser(params);
-
         Perseid.colls.config.update({_id: 'setup'}, {$set: {completed: true}});
     }
 });

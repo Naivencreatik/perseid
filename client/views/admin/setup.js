@@ -6,12 +6,11 @@ Template.setup.events({
         var pwdconf = template.find('[name="password-confirm"]').value;
 
         if (pwd !== pwdconf) {
-            alert(i18n.stringFor("setup.error.passwordmismatch"));
+            alert(i18n("setup.error.passwordmismatch"));
             return;
         }
 
-        //XXX: unsafe!!!
-        Perseid.colls.config.initialSetup({
+        Accounts.createUser({
             username: template.find('[name="login"]').value,
             password: template.find('[name="password"]').value,
         }, function(err){
@@ -19,7 +18,9 @@ Template.setup.events({
                 console.log(err);
                 return;
             }
-            Router.go('admin');
+
+            Meteor.call("config.initialSetup");
+            Router.go('/');
         });
     }
 });

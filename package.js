@@ -32,8 +32,6 @@ Package.on_use(function (api) {
   api.add_files([
     'client/perseid.js',
     
-    'client/collections/config.js',
-
     'client/i18n/i18n.js',
     'client/i18n/lang/fr.js',
     'client/i18n/lang/fr-moment.js',

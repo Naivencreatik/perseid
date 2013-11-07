@@ -26,7 +26,7 @@ Template.adminLogin.helpers({
     error: function(){
         var errorKey = Session.get('login.error');
         if (errorKey) {
-            return i18n.stringFor(errorKey);
+            return i18n(errorKey);
         }
     }
 });

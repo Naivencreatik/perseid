@@ -1,7 +1,7 @@
 Template.adminLogin.events({
     'submit': function(event, template){
         event.preventDefault();
-        debugger;
+
         Meteor.loginWithPassword(
             template.find('#user-login').value,
             template.find('#user-password').value,
@@ -23,9 +23,6 @@ Template.adminLogin.events({
 
 Template.adminLogin.helpers({
     error: function(){
-        var errorKey = Session.get('login.error');
-        if (errorKey) {
-            return i18n(errorKey);
-        }
-    }
+        return Session.get('login.error');
+x    }
 });

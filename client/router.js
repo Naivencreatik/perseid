@@ -1,6 +1,12 @@
 Perseid.subs.config = Meteor.subscribe("config");
 
 Router.map(function(){
+    this.route("admin", {
+        action: function () {
+            this.redirect("adminLogin");
+        }
+    });
+
     this.route("adminLogin", {
         path: "/admin/login"
     });
@@ -19,13 +25,7 @@ Router.map(function(){
 });
 
 Router.configure({
-    layoutTemplate: "layout",
-
-    before: function () {
-        if (Meteor.userId()) {
-            this.render("adminHeader", {to: "header"})
-        }
-    } 
+    layoutTemplate: "layout"
 });
 
 Router.before(function () {
@@ -44,6 +44,18 @@ Router.before(function () {
         else {
             Session.set("admin.login.redirect", routeName);
             this.redirect("adminLogin");
+        }
+    }
+});
+
+Router.after(function () {
+    var adminActionsTemplate = this.adminActionsTemplate || this.route.options.adminActionsTemplate;
+
+    if (Meteor.userId()) {
+        this.render("adminHeader", {to: "header"});
+
+        if (adminActionsTemplate) {
+            this.render(adminActionsTemplate, {to: "adminActions"});
         }
     }
 });

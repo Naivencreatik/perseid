@@ -1,12 +1,15 @@
 <template name="adminHeader">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="collapse navbar-collapse">
-            <div class="nav navbar-nav">
+            <div class="navbar-left">
                 {{yield "adminActions"}}
             </div>
-            <button type="button" class="btn btn-danger navbar-btn navbar-right logout">
-                <span class="glyphicon glyphicon-log-out"></span> {{i18n "logout"}}
-            </button>
+            <div class="navbar-right">
+                {{yield "adminStatus"}}    
+                <button type="button" class="btn btn-danger navbar-btn logout">
+                    <span class="glyphicon glyphicon-log-out"></span> {{i18n "logout"}}
+                </button>
+            </div>
         </div>
     </nav>
 </template>

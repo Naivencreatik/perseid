@@ -50,12 +50,17 @@ Router.before(function () {
 
 Router.after(function () {
     var adminActionsTemplate = this.adminActionsTemplate || this.route.options.adminActionsTemplate;
+    var adminStatusTemplate = this.adminStatusTemplate || this.route.options.adminStatusTemplate;
 
     if (Meteor.userId()) {
         this.render("adminHeader", {to: "header"});
 
         if (adminActionsTemplate) {
             this.render(adminActionsTemplate, {to: "adminActions"});
+        }
+
+        if (adminStatusTemplate) {
+            this.render(adminStatusTemplate, {to: "adminStatus"});
         }
     }
 });

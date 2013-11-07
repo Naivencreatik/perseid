@@ -38,6 +38,7 @@ Package.on_use(function (api) {
 
     'client/styles/bootstrap.css',
     'client/styles/bootstrap-theme.css',
+    'client/styles/perseid.css',
 
     'client/views/layout.html',
     

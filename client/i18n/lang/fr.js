@@ -1,7 +1,4 @@
 i18n.map("fr", {
-    "home": "Accueil",
-    "admin": "Administration",
-    "login": "Connexion",
     "logout": "Déconnexion",
     "user.login": "Login",
     "user.password": "Mot de passe",

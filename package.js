@@ -36,7 +36,8 @@ Package.on_use(function (api) {
     'client/i18n/lang/fr.js',
     'client/i18n/lang/fr-moment.js',
 
-    'client/styles/main.css',
+    'client/styles/bootstrap.css',
+    'client/styles/bootstrap-theme.css',
 
     'client/views/layout.html',
     
@@ -49,6 +50,13 @@ Package.on_use(function (api) {
     
     'client/router.js'
   ], 'client');
+
+  api.add_files([
+    'client/fonts/glyphicons-halflings-regular.eot',
+    'client/fonts/glyphicons-halflings-regular.svg',
+    'client/fonts/glyphicons-halflings-regular.ttf',
+    'client/fonts/glyphicons-halflings-regular.woff'
+  ], 'client', {isAsset:true});
 
   api.export('Perseid', ['client', 'server']);
 });

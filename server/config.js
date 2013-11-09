@@ -14,8 +14,8 @@ Meteor.methods({
     }
 });
 
-Meteor.startup(function () {
-    if (!Perseid.colls.config.findOne({_id: 'setup'})){
+Meteor.startup(function() {
+    if (!Perseid.colls.config.findOne({_id: 'setup'})) {
         Perseid.colls.config.insert({_id: 'setup', completed: false});
     }
 });

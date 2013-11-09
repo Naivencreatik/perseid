@@ -1,5 +1,5 @@
 Template.setup.events({
-    "submit": function(event, template){
+    "submit": function(event, template) {
         event.preventDefault();
 
         var pwd = template.find("#user-password").value;
@@ -13,11 +13,11 @@ Template.setup.events({
         Accounts.createUser({
             username: template.find("#user-login").value,
             password: pwd,
-        }, function(err){
-            if (err){
+        }, function(err) {
+            if (err) {
                 Session.set('setup.error', err);
             }
-            else {  
+            else {
                 Meteor.call("config.initialSetup");
                 Router.go("/");
             }
@@ -26,7 +26,7 @@ Template.setup.events({
 });
 
 Template.setup.helpers({
-    error: function(){
+    error: function() {
         return Session.get('setup.error');
     }
 });

@@ -2,7 +2,7 @@ Perseid.subs.config = Meteor.subscribe("config");
 
 Router.map(function(){
     this.route("admin", {
-        action: function () {
+        action: function() {
             this.redirect("adminLogin");
         }
     });
@@ -13,7 +13,7 @@ Router.map(function(){
 
     this.route("setup", {
         waitOn: Perseid.subs.config,
-        before: function () {
+        before: function() {
             //Ensure the setup screen can't be displayed once the setup process is completed
             if (this.ready() && Perseid.colls.config.findOne({_id: "setup"}).completed){
                 console.log("App has already been configured, redirecting to admin home");
@@ -28,12 +28,16 @@ Router.configure({
     layoutTemplate: "layout"
 });
 
-Router.before(function () {
+Router.before(function() {
     var routeName = this.route.name;
 
     // no need to check at these URLs
-    if (routeName === "admin" || routeName === "adminLogin" || routeName.indexOf("admin") !== 0)
+    if (routeName === "admin" ||
+        routeName === "adminLogin" ||
+        routeName.indexOf("admin") !== 0) {
+
         return;
+    }
 
     var user = Meteor.user();
     if (!user) {
@@ -48,7 +52,7 @@ Router.before(function () {
     }
 });
 
-Router.after(function () {
+Router.after(function() {
     var adminActionsTemplate = this.adminActionsTemplate || this.route.options.adminActionsTemplate;
     var adminStatusTemplate = this.adminStatusTemplate || this.route.options.adminStatusTemplate;
 
@@ -66,14 +70,12 @@ Router.after(function () {
 });
 
 /* First time run redirection */
-Deps.autorun(function(c){
-    if (Perseid.subs.config.ready()){
+Deps.autorun(function(c) {
+    if (Perseid.subs.config.ready()) {
         var setup = Perseid.colls.config.findOne({_id: "setup"});
-
         if (!setup.completed) {
             Router.go("setup");
         }
-
         c.stop();
     }
 });

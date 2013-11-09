@@ -2,7 +2,7 @@ Package.describe({
   summary: "Meteor modular CMS"
 });
 
-Package.on_use(function (api) {
+Package.on_use(function(api) {
 
   var deps = [
     'standard-app-packages',
